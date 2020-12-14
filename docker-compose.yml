@@ -8,6 +8,6 @@ services:
       - ./app:/usr/src/app
     networks:
       - host
-    command: bash -c "python3 instabot.py"
+    command: bash -c "python3 -u instabot.py"
 networks:
   host:
