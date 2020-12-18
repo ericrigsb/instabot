@@ -8,8 +8,7 @@ import os
 class InstaBot:
 
     hashtags = [
-        'hockey', 'hockeylife', 'beerleaguehockey', 'beerleague', 'cawlidgehawkey', 
-        'nhl', 'instahockey', 'hockeyplayer', 'juniorhockey',
+        'beerleaguehockey', 'beerleague', 'cawlidgehawkey', 'nhl', 'instahockey', 'hockeyplayer', 'juniorhockey', 'ahl', 'echl'
     ]
 
     def __init__(self):
