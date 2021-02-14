@@ -7,9 +7,10 @@ import os
 
 class InstaBot:
 
-    hashtags = [
-        'nwhl', 'beerleaguehockey', 'beerleague', 'cawlidgehawkey', 'nhl', 'instahockey', 'hockeyplayer', 'juniorhockey', 'ahl', 'echl'
-    ]
+    with open('hashtags') as f:
+        hashtags = f.readlines()
+    # you may also want to remove whitespace characters like `\n` at the end of each line
+    hashtags = [x.strip() for x in hashtags]
 
     def __init__(self):
         executable = GeckoDriverManager().install()
