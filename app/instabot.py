@@ -3,6 +3,7 @@ from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
 import time
+import random
 import os
 
 class InstaBot:
@@ -37,7 +38,7 @@ class InstaBot:
         email.send_keys(self.username)
         password.send_keys(self.password)
         password.send_keys(Keys.RETURN)
-        time.sleep(7)
+        time.sleep(8)
 
         try:
             bot.find_element_by_xpath('//button[text()="Not Now"]').click()
@@ -62,16 +63,17 @@ class InstaBot:
                 bot.execute_script('window.scrollTo(0, document.body.scrollHeight)')
                 time.sleep(8)
                 posts = bot.find_elements_by_class_name('v1Nh3')
+                posts = posts[:9]
                 [links.add(elem.find_element_by_css_selector('a').get_attribute('href')) for elem in posts ]
-
                 for link in links:
+                    n = random.randint(9, 36)
                     bot.get(link)
                     print(link)
                     time.sleep(6)
                     try:
                         bot.find_element_by_css_selector("[aria-label='Like']").click()
                         print('Liked.')
-                        time.sleep(11)
+                        time.sleep(n)
                     except Exception as ex:
                         print('Nothing to Like here.')
                         time.sleep(60)
